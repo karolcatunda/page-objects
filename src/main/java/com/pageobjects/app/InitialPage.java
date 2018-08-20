@@ -1,14 +1,12 @@
 package com.pageobjects.app;
 
+import com.pageobjects.environment.Environment;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-public class InitialPage extends SeleniumDriverSetup {
-    public InitialPage(WebDriver webDriver){
-        super(webDriver);
-    }
+public class InitialPage extends PageObjectBase {
+    String userNameLabelId = "header-details-user-fullname";
 
     public boolean isOnInitialPage() {
-        return getBrowser().findElement(By.id("header-details-user-fullname")).isDisplayed();
+        return Environment.getBrowser().findElement(By.id(userNameLabelId)).isDisplayed();
     }
 }
